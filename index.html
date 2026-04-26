@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dila's Diary ✨</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap');
+
+        body {
+            background: linear-gradient(rgba(255,182,193,0.3), rgba(255,182,193,0.3)), 
+                        url('https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1422&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            height: 100vh; margin: 0; display: flex; justify-content: center; align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            border-radius: 30px; border: 2px solid rgba(255,255,255,0.6);
+            padding: 30px; width: 85%; max-width: 350px; text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .profile-area img {
+            width: 80px; height: 80px; border-radius: 50%;
+            border: 3px solid #fff; box-shadow: 0 5px 15px rgba(255,105,180,0.3);
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; color: #ff69b4; font-size: 32px; margin: 10px 0; }
+        
+        .content-box {
+            background: rgba(255,255,255,0.6);
+            border-radius: 20px; padding: 15px; min-height: 100px;
+            margin-bottom: 20px; font-size: 14px; color: #666;
+            line-height: 1.6; border: 1px dashed #ffb6c1;
+        }
+
+        .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+        .btn {
+            background: #fff; padding: 12px; border-radius: 15px;
+            text-decoration: none; color: #ff69b4; font-weight: 600;
+            font-size: 13px; border: none; cursor: pointer;
+            transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .btn:active { transform: scale(0.9); background: #ffeff5; }
+
+        .btn-full { grid-column: span 2; background: #ff69b4; color: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="profile-area">
+        <img src="https://images.unsplash.com/photo-1520607162513-94ad2c64919f?w=200" alt="Dila">
+        <h1>Dila Space</h1>
+    </div>
+
+    <div class="content-box" id="display-text">
+        Pilih menu di bawah untuk melihat isi diary aku hari ini... ✨
+    </div>
+
+    <div class="menu-grid">
+        <button class="btn" onclick="showContent('daily')">🌸 Daily Vibe</button>
+        <button class="btn" onclick="showContent('thoughts')">💭 Thoughts</button>
+        <button class="btn" onclick="showContent('playlist')">🎵 Playlist</button>
+        <button class="btn" onclick="showContent('hobby')">🎨 Hobby</button>
+        <button class="btn btn-full" onclick="window.location.href='https://instagram.com'">Let's be friend! ✨</button>
+    </div>
+</div>
+
+<script>
+    function showContent(type) {
+        const box = document.getElementById('display-text');
+        if(type === 'daily') {
+            box.innerHTML = "<b>Today's Vibe:</b><br>Lagi ngerasa happy banget hari ini! Semangat buat belajar hal baru. 🌸✨";
+        } else if(type === 'thoughts') {
+            box.innerHTML = "<b>Random Thoughts:</b><br>Kira-kira besok makan apa ya yang enak? Pengen es krim coklat deh.. 🍦";
+        } else if(type === 'playlist') {
+            box.innerHTML = "<b>Current Playlist:</b><br>🎧 Taylor Swift - Lover<br>🎧 NIKI - Every Summertime";
+        } else if(type === 'hobby') {
+            box.innerHTML = "<b>My Hobby:</b><br>Lagi suka banget ngulik coding dan dengerin podcast aesthetic! 🎨📖";
+        }
+    }
+</script>
+
+</body>
+</html>
