@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Ibrahim ✨</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;600&display=swap');
+
+        body {
+            margin: 0; padding: 0;
+            background: #7a0808; /* Merah Marun/Hati */
+            color: #fff;
+            font-family: 'Quicksand', sans-serif;
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; overflow: hidden;
+        }
+
+        /* Hiasan Hati Melayang */
+        .bg-hearts {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; overflow: hidden; pointer-events: none;
+        }
+        .bg-hearts span {
+            position: absolute; display: block; width: 20px; height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 50% 80%, 18% 100%, 0% 35%);
+            animation: move 10s linear infinite; bottom: -50px;
+        }
+
+        @keyframes move {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .container {
+            width: 90%; max-width: 400px; position: relative;
+        }
+
+        .card {
+            background: #ffffff; color: #7a0808;
+            border-radius: 30px; padding: 40px 25px;
+            text-align: center; min-height: 450px;
+            display: none; flex-direction: column;
+            justify-content: center; align-items: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            border: 5px solid #ffb6c1;
+            animation: zoomIn 0.5s ease;
+        }
+
+        .card.active { display: flex; }
+
+        @keyframes zoomIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .photo {
+            width: 150px; height: 150px; border-radius: 50%;
+            border: 4px solid #7a0808; object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        h1 { font-family: 'Dancing Script', cursive; font-size: 35px; margin: 10px 0; }
+        p { font-size: 15px; line-height: 1.6; font-weight: 500; }
+        
+        .btn {
+            background: #7a0808; color: #fff; border: none;
+            padding: 12px 30px; border-radius: 50px;
+            font-weight: 600; cursor: pointer; margin-top: 25px;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        .heart-icon { color: #e31b23; font-size: 40px; animation: beat 1s infinite; }
+        @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+    </style>
+</head>
+<body>
+
+<div class="bg-hearts" id="heartsContainer"></div>
+
+<div class="container">
+    <div class="card active" id="p1">
+        <div class="heart-icon">❤️</div>
+        <h1>Hi, Ibrahim...</h1>
+        <p>I have a special message that words alone can't describe. Please open this journey of my heart.</p>
+        <button class="btn" onclick="nextPage('p2')">Click to Play ▷</button>
+    </div>
+
+    <div class="card" id="p2">
+        <img src="https://i.postimg.cc/J7HWG1Py/Snapchat-544285124.jpg" class="photo">
+        <h1>Proud of You</h1>
+        <p>Ibrahim, I am so incredibly <b>proud of you</b>. Seeing you grow and change into a better man every single day is the most beautiful thing. Thank you for choosing to be better for us.</p>
+        <button class="btn" onclick="nextPage('p3')">Next Page →</button>
+    </div>
+
+    <div class="card" id="p3">
+        <h1>Thank You</h1>
+        <p>Thank you for staying. I know I’m not always easy to love, and I know I don't always make your life easier. I might even make it harder. But your patience is a gift I'll never take for granted.</p>
+        <button class="btn" onclick="nextPage('p4')">Next Page →</button>
+    </div>
+
+    <div class="card" id="p4">
+        <h1>I'm Sorry & Love You</h1>
+        <p>I’m sorry for all the times I’ve been difficult. Thank you for always forgiving me while I work on myself. I want to keep growing with you, because you are the man I love most in my entire life.</p>
+        <div class="heart-icon">❤️</div>
+        <p style="font-family: 'Dancing Script'; font-size: 26px;">Forever yours, Dila</p>
+    </div>
+</div>
+
+<script>
+    function nextPage(pageId) {
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => card.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+    }
+
+    // Buat hiasan hati melayang
+    const container = document.getElementById('heartsContainer');
+    for(let i=0; i<15; i++) {
+        const heart = document.createElement('span');
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        heart.style.opacity = Math.random();
+        container.appendChild(heart);
+    }
+</script>
+
+</body>
+</html>
